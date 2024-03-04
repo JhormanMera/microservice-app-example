@@ -48,7 +48,7 @@ JWT_SECRET=PRFT TODO_API_PORT=8082 npm start
 ## Usage
 In case you need to test this API, you can use it as follows:
 ```
- curl -X POST -H "Authorization: Bearer $token" http://127.0.0.1:8082/todos -d '{"content": "deal with that"}'
+ curl -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk0ODE1MzAsImZpcnN0bmFtZSI6IkZvbyIsImxhc3RuYW1lIjoiQmFyIiwicm9sZSI6IkFETUlOIiwidXNlcm5hbWUiOiJhZG1pbiJ9.wST4LOudt13Qj8xciivskgRyKOkGFWFIwA3YgINo0a4" http://127.0.0.1:8082/todos -d '{"content": "deal with that"}'
 ```
 where `$token` is the response you get from [Auth API](/auth-api). 
 

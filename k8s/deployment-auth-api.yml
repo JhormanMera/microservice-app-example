@@ -21,4 +21,4 @@ spec:
      - name: auth-api
        image: jhormanmera/auth-api
        ports:
-        - containerPort: 8000
+        - containerPort: 8000

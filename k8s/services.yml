@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080  # Puerto expuesto por el contenedor del frontend
+  type: LoadBalancer
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-api
+spec:
+  selector:
+    app: auth-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000  # Puerto expuesto por el contenedor del frontend
+  type: ClusterIP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: log-message
+spec:
+  selector:
+    app: log-message
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 6029  # Puerto expuesto por el contenedor del frontend
+  type: ClusterIP
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-queue
+spec:
+  selector:
+    app: redis-queue
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 6379  # Puerto expuesto por el contenedor del frontend
+  type: ClusterIP
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: todos-api
+spec:
+  selector:
+    app: todos-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8082  # Puerto expuesto por el contenedor del frontend
+  type: ClusterIP
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-api
+spec:
+  selector:
+    app: users-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8083  # Puerto expuesto por el contenedor del frontend
+  type: ClusterIP
+  

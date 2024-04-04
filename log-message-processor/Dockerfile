@@ -1,15 +1,15 @@
-
-FROM python:3.6
-
-# Establecer el directorio de trabajo dentro del contenedor
+FROM python:3.6-slim
 WORKDIR /app
-
-# Copiar el archivo package.json y package-lock.json (si existe)
+COPY requirements.txt .
+RUN apt-get update && apt-get install -y gcc
+RUN pip3 install --upgrade pip
+RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
 
-RUN pip3 install -r requirements.txt
+ENV REDIS_HOST=redis-stack-server
+ENV REDIS_PORT=6379
+ENV REDIS_CHANNEL=log_channel
+
 EXPOSE 6029
-ENV REDIS_HOST=redis
-ENV REDIS_PORT=6379 
-ENV REDIS_CHANNEL=log_channel 
+
 CMD ["python3", "main.py"]

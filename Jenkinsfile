@@ -40,7 +40,7 @@ spec:
                 sh 'ls -lha'
                 sh 'pwd'
                 sh 'mkdir artifacts'
-                sh "tar -czvf artifacts/todos-api:${env.BUILD_ID}.tar.gz ."
+                sh "tar --ignore-failed-read -czvf artifacts/todos-api:${env.BUILD_ID}.tar.gz ."
             }
             }
         }

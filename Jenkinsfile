@@ -40,7 +40,9 @@ spec:
                 sh 'ls -lha'
                 sh 'pwd'
                 sh 'mkdir artifacts'
-                sh "tar -czvf artifacts/todos-api-`date '+%Y%m%d%H%M%S'`.tar.gz ."
+                sh 'mkdir -p tmp_artifacts'
+                sh "tar -czvf tmp_artifacts/todos-api-${env.BUILD_ID}.tar.gz ."
+                sh 'mv tmp_artifacts/* artifacts/'
             }
             }
         }

@@ -42,7 +42,7 @@ spec:
                 sh 'mkdir artifacts'
                 sh 'mkdir -p tmp_artifacts'
                 sh 'sleep 5'
-                sh "tar -czvf tmp_artifacts/todos-api-${env.BUILD_ID}.tar.gz ."
+                sh "find . -type f -print0 | tar -czvf tmp_artifacts/todos-api-${env.BUILD_ID}.tar.gz --null -T -"
                 sh 'mv tmp_artifacts/* artifacts/'
             }
             }
